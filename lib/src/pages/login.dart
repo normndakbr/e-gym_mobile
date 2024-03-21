@@ -5,6 +5,9 @@ import '../widgets/customTextFormField.dart';
 import '../widgets/clickableText.dart';
 
 class LoginPage extends StatelessWidget {
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +30,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.01)),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Please login to continue',
@@ -38,13 +41,15 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.07)),
-              const CustomTextFormField(
+              CustomTextFormField(
                 labelText: 'Email / Member ID',
+                value: email,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.03)),
-              const CustomTextFormField(
+              CustomTextFormField(
                 labelText: 'Password',
                 obscureText: true,
+                value: password,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.06)),
               Column(
@@ -52,7 +57,8 @@ class LoginPage extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      print('Login button pressed');
+                      print(email.text);
+                      print(password.text);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppConstants.secondaryColor,

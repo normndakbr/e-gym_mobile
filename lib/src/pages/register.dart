@@ -5,6 +5,11 @@ import '../widgets/customTextFormField.dart';
 import '../widgets/clickableText.dart';
 
 class RegisterPage extends StatelessWidget {
+  final TextEditingController email = TextEditingController();
+  final TextEditingController name = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final TextEditingController confirmPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +25,7 @@ class RegisterPage extends StatelessWidget {
                 child: Text(
                   'Create Account',
                   style: TextStyle(
-                    fontSize: AppUtils.responsiveHeight(context, 0.05),
+                    fontSize: AppUtils.responsiveHeight(context, 0.035),
                     fontWeight: FontWeight.w900,
                     color: AppConstants.secondaryColor,
                   ),
@@ -32,28 +37,32 @@ class RegisterPage extends StatelessWidget {
                 child: Text(
                   'Please provide information for create an account',
                   style: TextStyle(
-                    fontSize: AppUtils.responsiveHeight(context, 0.02),
+                    fontSize: AppUtils.responsiveHeight(context, 0.018),
                     color: AppConstants.secondaryColor,
                   ),
                 ),
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.06)),
-              const CustomTextFormField(
+              CustomTextFormField(
                 labelText: 'Email / Member ID',
+                value: email,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.03)),
-              const CustomTextFormField(
+              CustomTextFormField(
                 labelText: 'Full Name',
+                value: name,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.03)),
-              const CustomTextFormField(
+              CustomTextFormField(
                 labelText: 'Password',
                 obscureText: true,
+                value: password,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.03)),
-              const CustomTextFormField(
+              CustomTextFormField(
                 labelText: 'Confirm Passoword',
                 obscureText: true,
+                value: confirmPassword,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.06)),
               Column(
@@ -61,7 +70,10 @@ class RegisterPage extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      print('Register button pressed');
+                      print(email.text);
+                      print(name.text);
+                      print(password.text);
+                      print(confirmPassword.text);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppConstants.secondaryColor,
