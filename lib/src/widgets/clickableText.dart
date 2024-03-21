@@ -1,3 +1,5 @@
+import 'package:e_gym_mobile/src/pages/login.dart';
+import 'package:e_gym_mobile/src/pages/register.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:e_gym_mobile/constants.dart';
@@ -5,8 +7,9 @@ import 'package:e_gym_mobile/constants.dart';
 class ClickableText extends StatelessWidget {
   final String textSpan1;
   final String textSpan2;
+  final String type;
 
-  ClickableText(this.textSpan1, this.textSpan2);
+  ClickableText(this.textSpan1, this.textSpan2, this.type);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,17 @@ class ClickableText extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                print('Create now clicked!');
+                if (type == "login") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                } else if (type == "register") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                  );
+                }
               },
           ),
         ],

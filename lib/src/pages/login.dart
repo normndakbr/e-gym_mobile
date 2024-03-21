@@ -69,7 +69,8 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.1)),
-              ClickableText('Don\'t have an account? ', 'create now'),
+              ClickableText(
+                  'Don\'t have an account? ', 'create now', "register"),
             ],
           ),
         ),
