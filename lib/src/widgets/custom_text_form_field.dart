@@ -1,3 +1,4 @@
+import 'package:e_gym_mobile/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -14,9 +15,12 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        focusColor: AppConstants.secondaryColor,
         labelText: labelText,
+        labelStyle: TextStyle(color: AppConstants.secondaryColor),
       ),
       obscureText: obscureText,
+      style: TextStyle(color: AppConstants.secondaryColor),
     );
   }
 }
