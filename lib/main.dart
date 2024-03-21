@@ -1,3 +1,4 @@
+import 'package:e_gym_mobile/constants.dart';
 import 'package:flutter/material.dart';
 import 'src/pages/login.dart';
 
@@ -11,10 +12,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'eGym Apps',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        inputDecorationTheme: const InputDecorationTheme(
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: AppConstants.secondaryColor,
+            ),
+          ),
+        ),
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: AppConstants.secondaryColor,
+        ),
       ),
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
