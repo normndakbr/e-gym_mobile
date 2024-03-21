@@ -43,13 +43,13 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: AppUtils.responsiveHeight(context, 0.07)),
               CustomTextFormField(
                 labelText: 'Email / Member ID',
-                value: email,
+                textValue: email,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.03)),
               CustomTextFormField(
                 labelText: 'Password',
                 obscureText: true,
-                value: password,
+                textValue: password,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.06)),
               Column(
@@ -57,8 +57,43 @@ class LoginPage extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      print(email.text);
-                      print(password.text);
+                      if (email.text.isEmpty || password.text.isEmpty) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Warning'),
+                              content: Text('Please fill in email/password.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('OK'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Success'),
+                              content: Text('Login Accepted'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('OK'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppConstants.secondaryColor,

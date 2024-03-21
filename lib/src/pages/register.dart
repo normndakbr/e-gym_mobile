@@ -45,24 +45,24 @@ class RegisterPage extends StatelessWidget {
               SizedBox(height: AppUtils.responsiveHeight(context, 0.06)),
               CustomTextFormField(
                 labelText: 'Email / Member ID',
-                value: email,
+                textValue: email,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.03)),
               CustomTextFormField(
                 labelText: 'Full Name',
-                value: name,
+                textValue: name,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.03)),
               CustomTextFormField(
                 labelText: 'Password',
                 obscureText: true,
-                value: password,
+                textValue: password,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.03)),
               CustomTextFormField(
                 labelText: 'Confirm Passoword',
                 obscureText: true,
-                value: confirmPassword,
+                textValue: confirmPassword,
               ),
               SizedBox(height: AppUtils.responsiveHeight(context, 0.06)),
               Column(
@@ -70,10 +70,47 @@ class RegisterPage extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      print(email.text);
-                      print(name.text);
-                      print(password.text);
-                      print(confirmPassword.text);
+                      if (email.text.isEmpty ||
+                          password.text.isEmpty ||
+                          name.text.isEmpty ||
+                          confirmPassword.text.isEmpty) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Warning'),
+                              content: Text('Please fill in email/password.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('OK'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Success'),
+                              content: Text(
+                                  'New account request has been confirmed'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('OK'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppConstants.secondaryColor,
