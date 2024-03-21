@@ -15,7 +15,7 @@ class ClickableText extends StatelessWidget {
         children: [
           TextSpan(
             text: textSpan1,
-            style: TextStyle(color: AppConstants.secondaryColor),
+            style: const TextStyle(color: AppConstants.secondaryColor),
           ),
           TextSpan(
             text: textSpan2,
@@ -25,7 +25,6 @@ class ClickableText extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                // Handle the tap action, such as navigation to another screen
                 print('Create now clicked!');
               },
           ),
