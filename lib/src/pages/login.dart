@@ -1,7 +1,8 @@
 import 'package:e_gym_mobile/constants.dart';
 import 'package:e_gym_mobile/src/utils/utils.dart';
 import 'package:flutter/material.dart';
-import '../widgets/custom_text_form_field.dart';
+import '../widgets/customTextFormField.dart';
+import '../widgets/clickableText.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -19,7 +20,7 @@ class LoginPage extends StatelessWidget {
                 child: Text(
                   'Welcome',
                   style: TextStyle(
-                    fontSize: AppUtils.responsiveHeight(context, 0.05),
+                    fontSize: AppUtils.responsiveHeight(context, 0.04),
                     fontWeight: FontWeight.w900,
                     color: AppConstants.secondaryColor,
                   ),
@@ -31,7 +32,7 @@ class LoginPage extends StatelessWidget {
                 child: Text(
                   'Please login to continue',
                   style: TextStyle(
-                    fontSize: AppUtils.responsiveHeight(context, 0.02),
+                    // fontSize: AppUtils.responsiveHeight(context, 0.02),
                     color: AppConstants.secondaryColor,
                   ),
                 ),
@@ -67,6 +68,8 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: AppUtils.responsiveHeight(context, 0.1)),
+              ClickableText('Don\'t have an account? ', 'create now'),
             ],
           ),
         ),
