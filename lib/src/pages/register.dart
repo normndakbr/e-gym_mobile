@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:e_gym_mobile/constants.dart';
 import 'package:e_gym_mobile/src/utils/utils.dart';
 import '../widgets/customTextFormField.dart';
+import '../widgets/clickableText.dart';
 
 class RegisterPage extends StatelessWidget {
   @override
@@ -17,7 +18,7 @@ class RegisterPage extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Create New Account',
+                  'Create Account',
                   style: TextStyle(
                     fontSize: AppUtils.responsiveHeight(context, 0.05),
                     fontWeight: FontWeight.w900,
@@ -36,7 +37,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: AppUtils.responsiveHeight(context, 0.07)),
+              SizedBox(height: AppUtils.responsiveHeight(context, 0.06)),
               const CustomTextFormField(
                 labelText: 'Email / Member ID',
               ),
@@ -60,13 +61,13 @@ class RegisterPage extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      print('Login button pressed');
+                      print('Register button pressed');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppConstants.secondaryColor,
                     ),
                     child: Text(
-                      'Confirm',
+                      'Create Account',
                       style: TextStyle(
                         fontSize: AppUtils.responsiveWidth(context, 0.028),
                         fontWeight: FontWeight.w900,
@@ -76,6 +77,8 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: AppUtils.responsiveHeight(context, 0.1)),
+              ClickableText('Already have an account? ', 'log in', "login"),
             ],
           ),
         ),
