@@ -1,19 +1,26 @@
 import 'package:e_gym_mobile/constants.dart';
+import 'package:e_gym_mobile/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final bool obscureText;
+  TextEditingController textValue = TextEditingController();
+  String? Function(String?)? validator;
 
-  const CustomTextFormField({
-    Key? key,
+  CustomTextFormField({
+    super.key,
     required this.labelText,
+    required this.textValue,
     this.obscureText = false,
-  }) : super(key: key);
+    this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: textValue,
       decoration: InputDecoration(
         focusColor: AppConstants.secondaryColor,
         labelText: labelText,
@@ -21,6 +28,7 @@ class CustomTextFormField extends StatelessWidget {
       ),
       obscureText: obscureText,
       style: TextStyle(color: AppConstants.secondaryColor),
+      validator: validator,
     );
   }
 }
