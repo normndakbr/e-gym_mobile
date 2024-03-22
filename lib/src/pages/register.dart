@@ -74,41 +74,16 @@ class RegisterPage extends StatelessWidget {
                           password.text.isEmpty ||
                           name.text.isEmpty ||
                           confirmPassword.text.isEmpty) {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text('Warning'),
-                              content: Text('Please fill in email/password.'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text('OK'),
-                                ),
-                              ],
-                            );
-                          },
+                        ModalDialog.show(
+                          context,
+                          dialogType: 'Warning',
+                          dialogText: 'Please fill in all field.',
                         );
                       } else {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text('Success'),
-                              content: Text(
-                                  'New account request has been confirmed'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text('OK'),
-                                ),
-                              ],
-                            );
-                          },
+                        ModalDialog.show(
+                          context,
+                          dialogType: 'Success',
+                          dialogText: 'Register accounr request confirmed.',
                         );
                       }
                     },

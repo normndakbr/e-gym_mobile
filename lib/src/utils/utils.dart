@@ -44,3 +44,29 @@ class Validator {
     };
   }
 }
+
+class ModalDialog {
+  static void show(
+    BuildContext context, {
+    required String dialogType,
+    required String dialogText,
+  }) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(dialogType),
+          content: Text(dialogText),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}

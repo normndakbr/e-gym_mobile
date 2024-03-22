@@ -58,40 +58,16 @@ class LoginPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       if (email.text.isEmpty || password.text.isEmpty) {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text('Warning'),
-                              content: Text('Please fill in email/password.'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text('OK'),
-                                ),
-                              ],
-                            );
-                          },
+                        ModalDialog.show(
+                          context,
+                          dialogType: 'Warning',
+                          dialogText: 'Please fill in email/password.',
                         );
                       } else {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text('Success'),
-                              content: Text('Login Accepted'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text('OK'),
-                                ),
-                              ],
-                            );
-                          },
+                        ModalDialog.show(
+                          context,
+                          dialogType: 'Success',
+                          dialogText: 'Login Accepted.',
                         );
                       }
                     },
